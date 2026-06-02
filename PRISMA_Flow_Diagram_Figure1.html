@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PRISMA 2020 Flow Diagram — Reverse NIH</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8f8f8; display: flex; justify-content: center; padding: 30px; }
+  .diagram { width: 900px; }
+
+  .phase { margin-bottom: 20px; }
+  .phase-title { font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+
+  .main-box { border: 2px solid #1a1a2e; border-radius: 8px; padding: 14px 20px; text-align: center; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+
+  .count-box { background: #e8f0fe; border: 1px solid #1a1a2e; border-radius: 6px; padding: 10px 16px; text-align: center; font-size: 13px; display: inline-block; min-width: 160px; }
+  .count-box.large { font-size: 16px; font-weight: 700; min-width: 200px; }
+
+  .flow-row { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 8px; }
+  .flow-col { flex: 1; }
+
+  .exclude-box { border: 1px solid #c62828; border-radius: 6px; padding: 10px 14px; font-size: 12px; background: #ffebee; margin-bottom: 6px; }
+  .exclude-box strong { color: #c62828; display: block; margin-bottom: 4px; }
+
+  .source-list { font-size: 11px; color: #555; margin-top: 6px; }
+  .source-list span { display: inline-block; margin-right: 12px; white-space: nowrap; }
+
+  .arrow-v { text-align: center; font-size: 20px; color: #1a1a2e; font-weight: bold; margin: 4px 0; }
+  .arrow-h { font-size: 18px; color: #1a1a2e; font-weight: bold; margin: 0 8px; }
+
+  .outcome { background: #1a1a2e; color: #fff; border-radius: 8px; padding: 16px 20px; }
+  .cluster-row { display: flex; gap: 10px; margin-top: 10px; }
+  .cluster-tag { background: #e94560; color: #fff; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-weight: 600; }
+
+  .flex-center { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+  .flex-between { display: flex; justify-content: space-between; align-items: center; }
+</style>
+</head>
+<body>
+<div class="diagram">
+
+<div class="phase">
+  <div class="phase-title">IDENTIFICATION</div>
+  <div class="main-box" style="background:#fff;">
+    <div class="flex-between">
+      <div class="count-box large">Records identified<br><strong>n = 163</strong></div>
+      <div class="source-list">
+        <span>ScienceDirect: 38</span>
+        <span>Semantic Scholar: 48</span>
+        <span>Google Scholar: 28</span><br>
+        <span>Crossref/OpenAlex: 12</span>
+        <span>Scopus: 21</span>
+        <span>Snowballing: 16</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-v">&#8595;</div>
+
+<div class="phase">
+  <div class="phase-title">SCREENING</div>
+  <div class="flex-center" style="margin-bottom: 8px;">
+    <div class="count-box">Records screened<br><strong>n = 149</strong></div>
+    <div style="font-size:11px;color:#888;">(14 duplicates removed)</div>
+  </div>
+
+  <div class="exclude-box">
+    <strong>Records excluded (n = 81)</strong>
+    <div class="cluster-row">
+      <span class="cluster-tag" style="background:#c62828;">Biomedical false positives: 38</span>
+      <span class="cluster-tag" style="background:#c62828;">Reverse innovation confusion: 18</span>
+      <span class="cluster-tag" style="background:#c62828;">Non-English: 6</span>
+    </div>
+    <div class="cluster-row" style="margin-top:4px;">
+      <span class="cluster-tag" style="background:#c62828;">Non-peer-reviewed: 12</span>
+      <span class="cluster-tag" style="background:#c62828;">Unrelated: 7</span>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-v">&#8595;</div>
+
+<div class="phase">
+  <div class="phase-title">ELIGIBILITY</div>
+  <div class="flex-center" style="margin-bottom: 8px;">
+    <div class="count-box">Full-text sought<br><strong>n = 68</strong></div>
+    <div class="arrow-h">&#8594;</div>
+    <div class="count-box">Not retrieved<br><strong>n = 15</strong></div>
+    <div class="arrow-h">&#8594;</div>
+    <div class="count-box">Assessed<br><strong>n = 53</strong></div>
+  </div>
+
+  <div class="exclude-box">
+    <strong>Excluded after full-text review (n = 12)</strong>
+    <div class="cluster-row">
+      <span class="cluster-tag" style="background:#c62828;">No NIH/buy-in construct: 5</span>
+      <span class="cluster-tag" style="background:#c62828;">Tangential: 4</span>
+      <span class="cluster-tag" style="background:#c62828;">Low quality: 3</span>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-v">&#8595;</div>
+
+<div class="phase">
+  <div class="phase-title">INCLUDED</div>
+  <div class="outcome">
+    <div class="flex-between">
+      <div style="font-size:18px;font-weight:700;">Studies included in synthesis<br><strong style="font-size:28px;">n = 41</strong></div>
+      <div>
+        <div class="cluster-row">
+          <span class="cluster-tag" style="background:#0f3460;">Cluster A (NIH/buy-in): 18</span>
+          <span class="cluster-tag" style="background:#0f3460;">Cluster B (GCC HR): 8</span>
+        </div>
+        <div class="cluster-row" style="margin-top:4px;">
+          <span class="cluster-tag" style="background:#0f3460;">Cluster C (GCC procurement): 5</span>
+          <span class="cluster-tag" style="background:#0f3460;">Cluster D (Emerging parallels): 6</span>
+        </div>
+        <div class="cluster-row" style="margin-top:4px;">
+          <span class="cluster-tag" style="background:#e94560;">Method/Mechanism: 4</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center; margin-top: 16px; font-size: 11px; color: #888;">
+  PRISMA 2020 Flow Diagram &mdash; Adapted from Page et al. (2021). BMJ, 372, n71.
+</div>
+
+</div>
+</body>
+</html>
